@@ -1,0 +1,247 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Joel Cohen - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+    
+    <canvas id="rocketCanvas"></canvas>
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li><a href="#about" class="nav-item active" onclick="smoothScroll(document.getElementById('about'))">About Me</a></li>
+            <li><a href="#experience" class="nav-item" onclick="smoothScroll(document.getElementById('experience'))">Experience</a></li>
+            <li><a href="#projects" class="nav-item" onclick="smoothScroll(document.getElementById('projects'))">Projects</a></li>
+            <li><a href="#skills" class="nav-item" onclick="smoothScroll(document.getElementById('skills'))">Skills</a></li>
+            <li><a href="#contact" class="nav-item" onclick="smoothScroll(document.getElementById('contact'))">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="about" class="section">
+        <canvas id="constellationCanvas"></canvas>
+        <div class="content-container">
+            <img src="headshot.png" alt="Joel Cohen" class="profile-img">
+            <h1 class="title">Joel Cohen</h1>
+            <p class="About Me">
+                I’m a senior Information Science student at the University of Maryland, specializing in cybersecurity and data-driven solutions. With nearly a year of professional experience at Flexnode, a fast-growing data center startup, I’ve gained hands-on expertise in securing systems and optimizing operations. Passionate about leveraging technology to solve complex problems, I’m eager to bring my skills to impactful projects.
+            </p>
+            <a href="Kandel__Noah___resume.pdf" class="resume-button" download>Download My Resume</a>
+        </div>
+    </section>
+
+
+    
+    <section id="experience" class="section">
+        <div class="content-container">
+            <h1 class="title">Experience</h1>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fas fa-lightbulb"></i></div>
+                    <div class="timeline-content">
+                        <h2>Business Architecture and Security Engineer</h2>
+                        <h3>
+                            <a href="https://flexnode.io/" target="_blank" class="company-link">
+                                Flexnode
+                                <img src="images/flexnode.png" 
+                                     alt="Flexnode Logo" class="company-logo">
+                            </a>
+                        </h3>
+                        <p>• Worked closely with the CIO and Integration Lead of a tech startup specializing in edge micro data centers, contributing to innovative data storage engineering solutions</p>
+                        <p>• Developed Python scripts using the GPIO library to integrate the data center lights and locks with a Raspberry Pi, enabling control through a digital twin</p>
+                        <p>• Designed and implemented a cyber security training program for all employees, including simulated phishing emails and department-specific training modules</p>
+                        <span class="timeline-date">June 2024 - Present<br>Bethesda, MD</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="timeline-content">
+                        <h2>Student Engagement Ambassador </h2>
+                        <h3>
+                            <a href="https://giving.umd.edu/giving/showPage.php?name=student-call-center" target="_blank" class="company-link">
+                                Tell-A-Terp Call Center
+                                <img src="images/tellaterp.png" 
+                                     alt="Tell-A-Terp Call Center Logo" class="company-logo">
+                            </a>
+                        </h3>
+                        <p>• Initiated phone calls to parents and alumni to establish connections and foster positive relationships</p>
+                        <p>• Utilized communication skills to engage in meaningful conversations, actively listening to donors’ stories and experiences related to the university</p>
+                        <p>• Maintained a database of donor information, tracking their giving history, and ensuring personalized follow-up communications</p>
+                        <span class="timeline-date">September 2023 - December 2023<br>College Park, MD</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fas fa-globe"></i></div>
+                    <div class="timeline-content">
+                        <h2>Software Engineering Intern</h2>
+                        <h3>
+                            <a href="https://cyber20.com/" target="_blank" class="company-link">
+                                Israel Security Business Union (ISBU)
+                                <img src="images/isbu.png" 
+                                     alt="Israel Security Business Union (ISBU) Logo" class="company-logo">
+                            </a>
+                        </h3>
+                        <p>• Built webpage scrapers using Selenium library and integrated these into a data pipeline to automate data collection from multiple webpages, leading to the discovery of thousands of foreign companies</p>
+                        <p>• Created and maintained an MYSQL Server and SQL database, efficiently storing client company information and ensuring data integrity and security that was used to scout Israeli security and defense companies</p>
+                        <p>• Helped develop and improve the ISBU official website using Wix</p>
+                        <span class="timeline-date">June 2023 - August 2023<br>Tel Aviv, IL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="projects" class="section">
+        <div class="content-container">
+            <h1 class="title"> My Projects</h1>
+    
+            <!-- First Project: E-Commerce Sales Dashboard -->
+            <div class="project-card">
+                <div class="project-content">
+                    <div class="project-text">
+                        <h2>E-Commerce Sales Dashboard</h2>
+                        <div class="made-with">
+                            <span>Made with:</span>
+                            <img src="images/python.png" alt="Python" class="tech-icon">
+                            <img src="images/tableau.png" alt="Tableau" class="tech-icon">
+                        </div>
+                        <p>
+                            Cleaned and preprocessed 100,000+ transaction records using Python to handle missing values, remove duplicates, and standardize data formats. 
+                            Developed an interactive Tableau dashboard to analyze Brazilian e-commerce sales, revealing key insights such as $2.3M in total revenue, 75% customer preference for credit card payments, and 60% of sales originating from the Southeast region. 
+                            The dashboard enabled stakeholders to identify top-performing products, optimize inventory distribution, and improve marketing strategies.
+                        </p>
+                        <div class="project-buttons">
+                            <a href="https://github.com/nkandel1/ECommerceTableau" target="_blank" class="project-button">
+                                GitHub
+                                <img src="images/github-icon.png" alt="GitHub Logo" class="button-icon">
+                            </a>
+                        </div>
+                    </div>
+                    <img src="images/dashboard_image.png" alt="E-Commerce Sales Dashboard" class="project-image">
+                </div>
+            </div>
+    
+            <!-- Second Project: Web Scraper for ISBU -->
+            <div class="project-card">
+                <div class="project-content">
+                    <div class="project-text">
+                        <h2>Web Scraper for ISBU</h2>
+                        <div class="made-with">
+                            <span>Made with:</span>
+                            <img src="images/python.png" alt="Python" class="tech-icon">
+                            <img src="images/sql.png" alt="SQL" class="tech-icon">
+                        </div>
+                        <p>
+                            Developed a suite of automated web scrapers using Selenium to extract business data from multiple sources, streamlining lead generation for ISBU. 
+                            The scrapers were integrated with SQL databases to store and organize extracted data, enabling efficient querying and analysis. 
+                            This system successfully generated over 1,000 high-quality business leads, significantly enhancing ISBU’s outreach and sales pipeline. 
+                            The project’s codebase, available on GitHub, demonstrates robust error handling, modular design, and scalability for future expansion.
+                        </p>
+                        <div class="project-buttons">
+                            <a href="https://github.com/nkandel1/isbu_repo" target="_blank" class="project-button">
+                                GitHub
+                                <img src="images/github-icon.png" alt="GitHub Logo" class="button-icon">
+                            </a>
+                        </div>
+                    </div>
+                    <img src="images/scrapper.png" alt="Web Scraper Project" class="project-image">
+                </div>
+            </div>
+
+            <!-- Third Project: Cybersecurity Presentation for Flexnode -->
+<div class="project-card">
+    <div class="project-content">
+        <div class="project-text">
+            <h2>Cybersecurity Presentation - Flexnode</h2>
+            <div class="made-with">
+                <span>Made with:</span>
+                <img src="images/google_workspace.png" alt="google_workspace" class="tech-icon">
+                <img src="images/powerbi.png" alt="power-bi" class="tech-icon">
+            </div>
+            <p>
+                Delivered a comprehensive one-hour cybersecurity presentation to 100+ employees at Flexnode, covering essential security principles, updated company policies, and proactive awareness campaigns. 
+                Included live demonstrations of the new phishing reporting and training platform, showcasing its features and benefits. 
+                Integrated a Power BI dashboard to visualize real-time phishing attempt data, employee training progress, and incident response metrics. 
+                The presentation decreased employee phishing susceptibility by 40% and significantly improved compliance with security protocols.
+            </p>
+            <!-- <div class="project-buttons">
+                <a href="https://docs.google.com/presentation/d/1Hbck0efAhOwYSOSUatdQxl7xL_iicQ7m/edit?usp=sharing&ouid=102551605283608566679&rtpof=true&sd=true" target="_blank" class="project-button">
+                    View Presentation
+                    <img src="images/link-icon.png" alt="Link Icon" class="button-icon">
+                </a>
+            </div> -->
+        </div>
+        <img src="images/cs_pres.png" alt="Cybersecurity Presentation" class="project-image">
+    </div>
+</div>
+
+    
+        </div>
+    </section>
+
+    
+    <section id="skills" class="section">
+        <div class="content-container">
+            <h1 class="title">Skills</h1>
+            <div class="skills-grid">
+
+                <a href="https://www.python.org/" target="_blank">
+                    <img src="images/python.png" alt="Python">
+                </a>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
+                    <img src="images/html5.png" alt="HTML5">
+                </a>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">
+                    <img src="images/css3.png" alt="CSS3">
+                </a>
+                <a href="https://www.w3schools.com/sql/" target="_blank">
+                    <img src="images/sql.png" alt="SQL">
+                </a>
+                <a href="https://cran.r-project.org/" target="_blank">
+                    <img src="images/r.png" alt="R">
+                </a>
+                <a href="https://docs.kernel.org/" target="_blank">
+                    <img src="images/linux.png" alt="Linux">
+                </a>
+                <a href="https://www.tableau.com/" target="_blank">
+                    <img src="images/tableau.png" alt="Tableau">
+                </a>
+                <a href="https://www.microsoft.com/en-us/power-platform/products/power-bi" target="_blank">
+                    <img src="images/powerbi.png" alt="Power BI">
+                </a>
+                <a href="https://workspace.google.com/" target="_blank">
+                    <img src="images/google_workspace.png" alt="Google Workspace">
+                </a>
+                <a href="https://www.microsoft.com/en-us/microsoft-365" target="_blank">
+                    <img src="images/office365.png" alt="Microsoft Office 365">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="content-container">
+            <h1 class="title">Contact Me</h1>
+            <form id="contact-form" action="https://formspree.io/f/xrbewlgl" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+    
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+    
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+    
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+    
+    <script src="script.js"></script>
+    <!-- <script src="scripts/scrollTracker.js"></script>
+    <script src="scripts/constellations.js"></script>
+    <script src="scripts/scrollEffects.js"></script> -->
+</body>
+</html>
