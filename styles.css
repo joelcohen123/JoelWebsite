@@ -4,6 +4,7 @@ body {
     padding: 0;
     background: black; /* Dark background for stars */
     color: white;
+    padding-top: 60px; /* Add padding to account for fixed navbar */
 }
 
 canvas {
@@ -20,26 +21,28 @@ canvas {
 /* Default Navbar for Desktop */
 .navbar {
     position: fixed;
-    top: 2.5vh;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 510px;
-    background: rgba(144, 144, 144, 0.3);
-    padding: 16px 10px;
-    border-radius: 30px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 16px 0;
     backdrop-filter: blur(10px);
     transition: all 0.3s ease-in-out;
-    z-index: 1000;
+    z-index: 9999;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    will-change: transform;
 }
 
 .nav-list {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
     padding: 0;
     margin: 0;
     white-space: nowrap;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .nav-item {
@@ -53,25 +56,18 @@ canvas {
 
 @media (max-width: 600px) {
     .navbar {
-        width: 80px;
-        padding: 10px;
-        border-radius: 20px;
+        padding: 10px 0;
     }
 
     .nav-list {
-        flex-direction: column; /* Stack items vertically */
-        align-items: center;
-        gap: 15px;
+        flex-direction: row;
+        gap: 10px;
+        padding: 0 10px;
     }
 
     .nav-item {
         font-size: 12px;
-        text-decoration: none;
-        color: white;
-        font-weight: bold;
-        padding: 8px 15px;
-        border-radius: 20px;
-        transition: background 0.3s;
+        padding: 8px 12px;
     }
 }
 
@@ -82,11 +78,14 @@ canvas {
 
 .section {
     height: auto;
-    margin: 150px;
+    min-height: 100vh;
+    margin: 0;
+    padding: 150px 0;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    position: relative;
 }
 
 .content-container {
@@ -97,6 +96,7 @@ canvas {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     color: black;
     width: 60vw;
+    margin: 0 auto;
 }
 
 @media (max-width: 600px) {
