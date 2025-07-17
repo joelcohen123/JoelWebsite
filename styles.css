@@ -527,3 +527,28 @@ canvas {
 .project-button:hover {
     background: #444d56;
 }
+
+/* Modal fixes to prevent grey outlines */
+#arcade-hub[style*="display: none"],
+#geo-game-modal[style*="display: none"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Ensure modals don't leave visual artifacts */
+#arcade-hub,
+#geo-game-modal {
+    transition: opacity 0.3s ease;
+}
+
+/* Fix for any potential outline issues */
+* {
+    outline: none;
+}
+
+body:focus,
+html:focus {
+    outline: none;
+}
