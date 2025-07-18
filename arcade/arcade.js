@@ -669,7 +669,7 @@ function launchBlackjackGame() {
   // Create and append the audio element for Blackjack
   const blackjackAudio = document.createElement('audio');
   blackjackAudio.id = 'blackjack-audio';
-  blackjackAudio.src = 'skyfall.mp3';
+  blackjackAudio.src = 'Skyfall.mp3';
   blackjackAudio.loop = true;
   blackjackAudio.volume = 0.5;
   arcadeHub.appendChild(blackjackAudio);
