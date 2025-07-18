@@ -32,7 +32,7 @@
             <p class="About Me">
                 Hi, I'm Joel Cohen — a recent University of Maryland graduate with a degree in Information Science and a minor in Real Estate Development. I'm passionate about technology and people, and I'm driven to build a career in tech sales where I can bridge the gap between complex digital solutions and real-world business needs.
 I thrive on understanding how technology works and translating that knowledge into clear, confident guidance for others. I'm excited to help organizations solve problems, grow smarter, and build toward a sustainable, tech-forward future.
-Outside of work, I'm always learning — whether it's diving into new technologies, exploring the ocean as a scuba diver, building with LEGOs, or tracking trends in investing. I bring curiosity, energy, and a collaborative spirit to everything I do.
+Outside of work, I'm always learning — whether it's diving into new technologies, exploring the ocean as a scuba diver, building with LEGOs, or tracking trends in investing and sports. I bring curiosity, energy, and a collaborative spirit to everything I do.
             </p>
             <a href="_Joel J. Cohen Resume  (1).pdf" class="resume-button" download>Download My Resume</a>
         </div>
@@ -121,7 +121,7 @@ Outside of work, I'm always learning — whether it's diving into new technologi
                 <div class="project-text">
                   <h2>Arcade</h2>
                   <p>
-                    Play classic games like Snake, Tetris, and Blackjack right in your browser!
+                    Play classic games like Snake, Tetris, and Blackjack right in your browser! FIGHTING GAME IN PROGRESS TEST DEMO
                   </p>
                   <div class="project-buttons">
                     <button class="project-button" id="open-arcade-btn">Play Arcade</button>
@@ -137,12 +137,12 @@ Outside of work, I'm always learning — whether it's diving into new technologi
                 <div class="project-text">
                   <h2>Stock Chart Comparison</h2>
                   <p>
-                    Compare stock performance side-by-side! Enter any two stock symbols and view their price charts over different time periods. Perfect for analyzing investment opportunities and market trends.
+                    Compare stock performance side-by-side! Enter any stock symbols and view their price charts over different time periods. Perfect for analyzing investment opportunities and market trends.
                   </p>
                   <div class="project-buttons">
                     <button class="project-button" id="open-stock-comparison-btn">Open Stock Tool</button>
                   </div>
-                </div>
+                </div>   
                 <!-- Easily change the stock chart image by replacing 'Images/stock-chart-icon.png' with your own PNG file -->
                 <img src="Images/stock-chart-icon.png" alt="Stock Chart Icon" class="project-image" id="stock-chart-logo-home" style="max-width: 240px; width: 100%; height: auto; display: block; object-fit: contain;" />
               </div>
@@ -154,7 +154,7 @@ Outside of work, I'm always learning — whether it's diving into new technologi
                 <div class="project-text">
                   <h2>Geography Guessing Game</h2>
                   <p>
-                    Test your knowledge of world geography! Guess the country based on its flag, a famous landmark, or its capital city. You have 3 lives and 15 seconds per question. Earn points for every correct answer!
+                    Test your knowledge of world geography! Guess the country based on its flag, a famous landmark, or its capital city. You have tons of different modes to choose from. Earn points for every correct answer!
                   </p>
                   <div class="project-buttons">
                     <button class="project-button" id="open-geo-game-btn">Play Geography Game</button>
@@ -170,7 +170,7 @@ Outside of work, I'm always learning — whether it's diving into new technologi
                 <div class="project-text">
                   <h2>NFL Matchup Analyzer (Work in Progress)</h2>
                   <p>
-                    Analyze NFL team matchups with historical data! Compare any two teams to see their head-to-head record, scoring trends, and get predictions based on 6 seasons of real game data. Perfect for fantasy football and betting insights.
+                    Analyze NFL team matchups with historical data! Compare any two teams to see their head-to-head record, scoring trends, and get predictions based on several seasons of real game data. IN PROGRESS DATA NOT CONNECTED LIVE
                   </p>
                   <div class="project-buttons">
                     <button class="project-button" id="open-nfl-analyzer-btn">Open NFL Analyzer</button>
@@ -334,6 +334,7 @@ Outside of work, I'm always learning — whether it's diving into new technologi
     <script src="arcade/snake.js"></script>
     <script src="arcade/tetris.js"></script>
     <script src="arcade/blackjack.js"></script>
+    <script src="arcade/fighter.js"></script>
     <script src="geoGame.js"></script>
     <script src="nfl-analyzer.js"></script>
 
@@ -363,7 +364,7 @@ Outside of work, I'm always learning — whether it's diving into new technologi
         </div>
       </div>
       <button id="close-arcade-btn" style="margin-top:2rem;">Close</button>
-      <div id="arcade-game-container" style="margin-top:2rem; flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: space-between; width: 100%;"></div>
+      <div id="arcade-game-container"></div>
     </div>
 
     <!-- NFL Matchup Analyzer Modal/Section (hidden by default) -->

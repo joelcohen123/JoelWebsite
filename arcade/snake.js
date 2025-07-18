@@ -13,10 +13,26 @@ function startSnakeGame(snakeColor) {
   const canvas = document.getElementById('snake-canvas');
   const ctx = canvas.getContext('2d');
   const gridSize = 8; // Reduced from 10 to 8
-  const gridWidth = 25; // Reduced from 30 to 25
-  const gridHeight = 25; // Reduced from 30 to 25
-  canvas.width = gridWidth * gridSize; // Now 200px
-  canvas.height = gridHeight * gridSize; // Now 200px
+  const gridWidth = 41; // 25% bigger than 33
+  const gridHeight = 41;
+  canvas.width = gridWidth * gridSize; // Now 328px
+  canvas.height = gridHeight * gridSize; // Now 328px
+  // Force canvas to display at true size regardless of parent CSS
+  canvas.style.width = '328px';
+  canvas.style.height = '328px';
+  canvas.style.maxWidth = 'none';
+  canvas.style.maxHeight = 'none';
+  canvas.style.display = 'block';
+  canvas.style.margin = '0 auto';
+  // Inject CSS override for #snake-canvas if not present
+  if (!document.getElementById('snake-centering-style')) {
+    const style = document.createElement('style');
+    style.id = 'snake-centering-style';
+    style.innerHTML = `
+      #snake-canvas { width: 328px !important; height: 328px !important; max-width: none !important; max-height: none !important; display: block; margin: 0 auto; }
+    `;
+    document.head.appendChild(style);
+  }
   const centerX = Math.floor((gridWidth / 2));
   const centerY = Math.floor((gridHeight / 2));
   let snake = [{x: centerX, y: centerY}];
@@ -58,8 +74,8 @@ function startSnakeGame(snakeColor) {
 
     // Draw score
     ctx.fillStyle = 'white';
-    ctx.font = '14px Arial';
-    ctx.fillText('Score: ' + score, 5, 15);
+    ctx.font = '22px Arial';
+    ctx.fillText('Score: ' + score, 5, 26);
 
     // Draw game over with flashing effect
     if (gameOver && flashVisible) {
@@ -68,19 +84,20 @@ function startSnakeGame(snakeColor) {
       
       // Game Over text
       ctx.fillStyle = 'red';
-      ctx.font = 'bold 24px Arial';
+      ctx.font = 'bold 40px Arial';
       const gameOverText = 'GAME OVER!';
-      ctx.fillText(gameOverText, canvas.width / 2 - ctx.measureText(gameOverText).width / 2, canvas.height / 2 - 20);
+      ctx.fillText(gameOverText, canvas.width / 2 - ctx.measureText(gameOverText).width / 2, canvas.height / 2 - 36);
       
       // Restart instruction
       ctx.fillStyle = 'white';
-      ctx.font = '14px Arial';
+      ctx.font = '24px Arial';
       const restartText = 'Press SPACE to restart';
-      ctx.fillText(restartText, canvas.width / 2 - ctx.measureText(restartText).width / 2, canvas.height / 2 + 10);
+      ctx.fillText(restartText, canvas.width / 2 - ctx.measureText(restartText).width / 2, canvas.height / 2 + 12);
       
       // Final score
+      ctx.font = 'bold 28px Arial';
       const scoreText = 'Final Score: ' + score;
-      ctx.fillText(scoreText, canvas.width / 2 - ctx.measureText(scoreText).width / 2, canvas.height / 2 + 30);
+      ctx.fillText(scoreText, canvas.width / 2 - ctx.measureText(scoreText).width / 2, canvas.height / 2 + 48);
     }
   }
 

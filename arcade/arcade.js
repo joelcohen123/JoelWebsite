@@ -3,15 +3,15 @@ document.addEventListener('DOMContentLoaded', function() {
 const arcadeHub = document.getElementById('arcade-hub');
 const container = document.getElementById('arcade-game-container');
 // Adjust container height to fit above header and controls, and set flex properties
-container.style.height = 'calc(100vh - 250px)'; // Adjusted space to potentially lift game and buttons
-container.style.display = 'flex';
-container.style.flexDirection = 'column';
-container.style.alignItems = 'center';
-container.style.justifyContent = 'flex-start'; // Align items to the top
-container.style.overflowY = 'auto'; // Allow container to scroll if game content is too tall
-container.style.marginTop = '20px'; // Add some space below the header
-// Remove any padding-bottom that might have been added for spacing
-container.style.paddingBottom = '0';
+// Remove or override these lines to allow launchTetrisGame to control centering:
+// container.style.height = 'calc(100vh - 250px)';
+// container.style.display = 'flex';
+// container.style.flexDirection = 'column';
+// container.style.alignItems = 'center';
+// container.style.justifyContent = 'flex-start'; // <-- REMOVE THIS LINE
+// container.style.overflowY = 'auto';
+// container.style.marginTop = '20px'; // <-- REMOVE THIS LINE
+// container.style.paddingBottom = '0';
 
 const arcadeTitle = arcadeHub.querySelector('h1');
 const arcadeMenuRow = arcadeHub.querySelector('div[style*="display:flex;"]');
@@ -23,15 +23,16 @@ window.controlsDiv = controlsDiv;
 controlsDiv.id = 'arcade-controls';
 controlsDiv.style.display = 'none';
 controlsDiv.style.width = '100%';
-controlsDiv.style.position = 'fixed';
-controlsDiv.style.bottom = '60px'; // Moved up even more to ensure full visibility
+controlsDiv.style.position = 'static'; // Not fixed, so it sits below the game
 controlsDiv.style.left = '0';
 controlsDiv.style.padding = '0.8rem 0';
-controlsDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-controlsDiv.style.zIndex = '1001'; // Increased z-index
+controlsDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.8)'; // Subtle dark background
+controlsDiv.style.zIndex = '1001';
 controlsDiv.style.display = 'flex';
 controlsDiv.style.justifyContent = 'center';
 controlsDiv.style.gap = '1rem';
+// Remove debug border/background
+controlsDiv.style.border = 'none';
 
 const backButton = document.createElement('button');
 backButton.id = 'back-to-menu-btn';
@@ -99,6 +100,8 @@ backButton.onclick = function() {
     // Clear the container and show the menu
     container.innerHTML = '';
     if (arcadeTitle) arcadeTitle.style.display = '';
+    const arcadeLogo = document.getElementById('arcade-logo');
+    if (arcadeLogo) arcadeLogo.style.display = '';
     if (arcadeMenuRow) arcadeMenuRow.style.display = '';
     if (closeArcadeBtn) closeArcadeBtn.style.display = '';
     hideControls();
@@ -142,7 +145,14 @@ controlsDiv.appendChild(backButton);
 controlsDiv.appendChild(restartButton);
 
 function showControls() {
+  // Ensure buttons are present in the controls bar
+  if (!controlsDiv.contains(backButton)) controlsDiv.appendChild(backButton);
+  if (!controlsDiv.contains(restartButton)) controlsDiv.appendChild(restartButton);
+  // Force display
+  backButton.style.display = 'inline-block';
+  restartButton.style.display = 'inline-block';
   controlsDiv.style.display = 'flex';
+  console.log('showControls: backButton and restartButton should be visible:', backButton, restartButton);
 }
 
 function hideControls() {
@@ -156,6 +166,11 @@ if (document.getElementById('open-arcade-btn')) {
     arcadeHub.style.visibility = 'visible';
     arcadeHub.style.opacity = '1';
     arcadeHub.style.pointerEvents = 'auto';
+    // FORCE FLEX CENTERING ON MODAL
+    arcadeHub.style.display = 'flex';
+    arcadeHub.style.flexDirection = 'column';
+    arcadeHub.style.alignItems = 'center';
+    arcadeHub.style.justifyContent = 'center';
   };
 }
 
@@ -172,6 +187,8 @@ if (closeArcadeBtn) {
     
     // Show arcade menu elements again
     if (arcadeTitle) arcadeTitle.style.display = '';
+    const arcadeLogo = document.getElementById('arcade-logo');
+    if (arcadeLogo) arcadeLogo.style.display = '';
     if (arcadeMenuRow) arcadeMenuRow.style.display = '';
     if (closeArcadeBtn) closeArcadeBtn.style.display = '';
     
@@ -216,25 +233,115 @@ if (closeArcadeBtn) {
   };
 }
 
-// Update menu click logic
+// Add a new button for the fighting game in the arcade modal (home screen menu)
+// Only add if not already present
+if (arcadeMenuRow && !arcadeMenuRow.querySelector('[data-game="fighter"]')) {
+  const fighterOption = document.createElement('div');
+  fighterOption.className = 'arcade-game-option';
+  fighterOption.style.display = 'flex';
+  fighterOption.style.flexDirection = 'column';
+  fighterOption.style.alignItems = 'center';
+  fighterOption.style.gap = '0.5rem';
+  fighterOption.style.cursor = 'pointer';
+  // User: Add your logo image to Images/fighter-logo.png for the arcade menu
+  fighterOption.innerHTML = `
+    <img src="Images/fighter-logo.png" alt="Fighter Game Logo" style="width:64px; height:64px; object-fit:cover; border-radius:8px; background:#222;" />
+    <button class="arcade-game-btn" data-game="fighter">Santa vs Alien</button>
+  `;
+  arcadeMenuRow.appendChild(fighterOption);
+}
+
+// Add launch logic for the new game
+function launchFighterGame(mode) {
+  // If no mode, show mode select screen
+  if (!mode) {
+    container.innerHTML = `
+      <div id="fighter-outer" style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;">
+        <h2 style="color:white;">Santa vs Alien <span style='font-size:0.8em;'>(In development)</span></h2>
+        <div style="margin: 18px 0;">
+          <button id="fighter-friend-btn" style="padding:0.7rem 1.5rem;margin:0 1rem 1rem 0;font-size:1rem;">Fight a Friend</button>
+          <button id="fighter-cpu-btn" style="padding:0.7rem 1.5rem;margin:0 0 1rem 1rem;font-size:1rem;">Practice vs CPU</button>
+        </div>
+      </div>
+    `;
+    showControlsBelowGame();
+    document.getElementById('fighter-friend-btn').onclick = () => launchFighterGame('friend');
+    document.getElementById('fighter-cpu-btn').onclick = () => launchFighterGame('cpu-select');
+    return;
+  }
+  // If CPU mode, show character select
+  if (mode === 'cpu-select') {
+    container.innerHTML = `
+      <div id="fighter-outer" style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;">
+        <h2 style="color:white;">Choose Your Character</h2>
+        <div style="margin: 18px 0;display:flex;gap:2rem;">
+          <button id="choose-santa" style="font-size:2rem;padding:1rem;">🎅<br>Santa</button>
+          <button id="choose-alien" style="font-size:2rem;padding:1rem;">👽<br>Alien</button>
+        </div>
+      </div>
+    `;
+    showControlsBelowGame();
+    document.getElementById('choose-santa').onclick = () => launchFighterGame({mode:'cpu', player:'santa'});
+    document.getElementById('choose-alien').onclick = () => launchFighterGame({mode:'cpu', player:'alien'});
+    return;
+  }
+  // Game UI
+  container.innerHTML = `
+    <div id="fighter-outer" style="display:flex;flex-direction:column;align-items:center;justify-content:flex-start;width:100%;height:100%;">
+      <div id="fighter-wrapper" style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:auto;">
+        <canvas id="fighter-canvas" width="180" height="90" style="background:#222;display:block;margin:auto;border-radius:8px;"></canvas>
+      </div>
+      <div style="height:40px;"></div>
+    </div>
+  `;
+  showControlsBelowGame();
+  // Start the game with the correct mode
+  if (typeof mode === 'object' && mode.mode === 'cpu') {
+    startFighterGame('cpu', mode.player);
+  } else {
+    startFighterGame('friend');
+  }
+}
+
+// Helper to show controls bar below the game container, never inside or overlapping
+function showControlsBelowGame() {
+  window.controlsDiv.style.position = 'static';
+  window.controlsDiv.style.bottom = '';
+  window.controlsDiv.style.left = '';
+  window.controlsDiv.style.width = '100%';
+  window.controlsDiv.style.zIndex = '1003';
+  window.controlsDiv.style.display = 'flex';
+  window.controlsDiv.style.marginTop = '32px';
+  window.controlsDiv.style.marginBottom = '0';
+  window.controlsDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+  window.controlsDiv.style.justifyContent = 'center';
+  window.controlsDiv.style.gap = '1rem';
+  if (window.controlsDiv.parentNode) {
+    window.controlsDiv.parentNode.removeChild(window.controlsDiv);
+  }
+  // Place controls bar after the fighter-outer div
+  if (container.querySelector('#fighter-outer')) {
+    container.querySelector('#fighter-outer').after(window.controlsDiv);
+  } else {
+    container.appendChild(window.controlsDiv);
+  }
+  showControls();
+}
+
+// Update arcade menu click logic to handle the new game
 if (arcadeMenuRow) {
   arcadeMenuRow.onclick = function(e) {
     // Find the closest game option div
     const gameOption = e.target.closest('.arcade-game-option');
     if (!gameOption) return;
-    
     const gameBtn = gameOption.querySelector('.arcade-game-btn');
     if (!gameBtn) return;
-    
     const game = gameBtn.getAttribute('data-game');
     container.innerHTML = '';
     hideControls();
-    
-    // Hide the arcade menu elements
     if (arcadeTitle) arcadeTitle.style.display = 'none';
     if (arcadeMenuRow) arcadeMenuRow.style.display = 'none';
     if (closeArcadeBtn) closeArcadeBtn.style.display = 'none';
-    
     if (game === 'snake') {
       launchSnakeGame();
       console.log('Snake color picker shown');
@@ -244,6 +351,9 @@ if (arcadeMenuRow) {
     } else if (game === 'blackjack') {
       launchBlackjackGame();
       console.log('Blackjack launched');
+    } else if (game === 'fighter') {
+      launchFighterGame();
+      console.log('Fighter launched');
     }
   };
 }
@@ -287,22 +397,45 @@ function launchSnakeGame() {
     if (closeArcadeBtn) closeArcadeBtn.style.display = 'none';
     // Set the game UI
     container.innerHTML = `
-      <div id='snake-wrapper' style='display:flex;flex-direction:column;align-items:center;position:relative; margin:auto; box-sizing: border-box; flex-grow: 1; width: 100%; z-index: 1002;'>
-        <canvas id='snake-canvas' width='300' height='300' style='background:black;display:block;margin:auto;'></canvas>
-        <p style='color:white; margin-top: 10px;'>Use arrow keys to play. Eat the squares!</p>
-        <div id='snake-countdown-overlay' style='position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;color:white;background:rgba(0,0,0,0.7);z-index:2;'></div>
+      <div class='snake-center-outer'>
+        <div id='snake-wrapper' style='display:flex;flex-direction:column;align-items:center;position:relative; margin:auto; box-sizing: border-box; flex-grow: 1; width: 100%; z-index: 1002;'>
+          <canvas id='snake-canvas' width='242' height='242' style='background:black;display:block;margin:auto;'></canvas>
+          <p style='color:white; margin-top: 10px;'>Use arrow keys to play. Eat the squares!</p>
+          <div id='snake-countdown-overlay' style='position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;color:white;background:rgba(0,0,0,0.7);z-index:2;'></div>
+        </div>
       </div>
     `;
     // Reset controls bar style before appending
     window.controlsDiv.style.position = 'static';
     window.controlsDiv.style.bottom = '';
     window.controlsDiv.style.left = '';
-    window.controlsDiv.style.width = '';
+    window.controlsDiv.style.width = '100%';
     window.controlsDiv.style.zIndex = '';
     window.controlsDiv.style.display = 'flex';
-    window.controlsDiv.style.marginTop = '20px';
+    window.controlsDiv.style.marginTop = '24px';
+    window.controlsDiv.style.marginBottom = '0';
     window.controlsDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-    container.appendChild(window.controlsDiv);
+    if (window.controlsDiv.parentNode) {
+      window.controlsDiv.parentNode.removeChild(window.controlsDiv);
+    }
+    // Append controls bar above the game, below the arcade logo/title
+    if (window.controlsDiv.parentNode) {
+      window.controlsDiv.parentNode.removeChild(window.controlsDiv);
+    }
+    showControls();
+    // Set only the game markup
+    container.innerHTML = `
+      <div class='snake-center-outer'>
+        <div id='snake-wrapper' style='display:flex;flex-direction:column;align-items:center;position:relative; margin:auto; box-sizing: border-box; flex-grow: 1; width: 100%; z-index: 1002;'>
+          <canvas id='snake-canvas' width='242' height='242' style='background:black;display:block;margin:auto;'></canvas>
+          <p style='color:white; margin-top: 10px;'>Use arrow keys to play. Eat the squares!</p>
+          <div id='snake-countdown-overlay' style='position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;color:white;background:rgba(0,0,0,0.7);z-index:2;'></div>
+        </div>
+      </div>
+    `;
+    // Insert controls bar above the game
+    container.insertBefore(window.controlsDiv, container.firstChild);
+    showControls(); // Show controls immediately after appending
     hideControls(); // Hide controls during countdown
     let count = 3;
     const overlay = document.getElementById('snake-countdown-overlay');
@@ -339,42 +472,117 @@ function launchTetrisGame() {
       window.tetrisAudio.parentNode.removeChild(window.tetrisAudio);
     }
   }
-  window.tetrisAudio = null; // Clear global reference
+  window.tetrisAudio = null;
+
+  // Force #arcade-hub to be flex-centered and full height
+  arcadeHub.style.display = 'flex';
+  arcadeHub.style.flexDirection = 'column';
+  arcadeHub.style.alignItems = 'center';
+  arcadeHub.style.justifyContent = 'center';
+  arcadeHub.style.height = '100vh';
+  arcadeHub.style.width = '100vw';
+
+  // Hide only the menu title and menu row, but keep the logo visible
+  if (arcadeTitle) arcadeTitle.style.display = 'none';
+  if (arcadeMenuRow) arcadeMenuRow.style.display = 'none';
+  if (closeArcadeBtn) closeArcadeBtn.style.display = 'none';
+  // DO NOT hide the arcade logo
+
+  // Remove forced centering on container
+  container.style.display = 'flex';
+  container.style.flexDirection = 'column';
+  container.style.alignItems = 'center';
+  container.style.justifyContent = 'center';
+  container.style.height = '100%';
+  container.style.width = '100%';
+  container.style.minHeight = '0';
+  container.style.minWidth = '0';
+  container.style.margin = '0';
+  container.style.padding = '0';
 
   // Create and append the audio element to arcadeHub for persistence
   const tetrisAudio = document.createElement('audio');
   tetrisAudio.id = 'tetris-audio';
   tetrisAudio.src = 'party-in-the-usa.mp3';
-  tetrisAudio.loop = true; // Ensure it loops throughout the game
-  tetrisAudio.volume = 0.5; // Set initial volume
+  tetrisAudio.loop = true;
+  tetrisAudio.volume = 0.5;
   arcadeHub.appendChild(tetrisAudio);
-  window.tetrisAudio = tetrisAudio; // Store globally
+  window.tetrisAudio = tetrisAudio;
 
-  // Set the game UI
+  // Set up the game UI in a centered flexbox container, with buttons at the top and game area centered below
   container.innerHTML = `
-    <div id='tetris-wrapper' style='display:flex;flex-direction:column;align-items:center;position:relative; margin:auto; box-sizing: border-box; flex-grow: 1; width: 100%; max-width: 450px; min-height: 420px; z-index: 1002; background: none;'>
-      <div style='color:white;text-align:center;margin-bottom:10px;'>
-        <h2 style='margin:0;font-size:1.2rem;'>Party in the USA Tetris</h2>
-        <p style='margin:5px 0;font-size:0.9rem;'>Use arrow keys to move and rotate. Space to hard drop.</p>
+    <div id='tetris-outer' style='display:flex;flex-direction:column;align-items:center;justify-content:flex-start;height:100vh;'>
+      <div id="tetris-buttons-row" style="display:flex;gap:1rem;justify-content:center;margin-top:40px;margin-bottom:24px;width:100%;">
+        <button id="tetris-back-btn" style="padding:0.4rem 0.8rem;background:#4CAF50;color:white;border:none;border-radius:4px;cursor:pointer;box-shadow:0 2px 4px rgba(0,0,0,0.2);font-size:0.9rem;">Return to Arcade Menu</button>
+        <button id="tetris-restart-btn" style="padding:0.4rem 0.8rem;background:#2196F3;color:white;border:none;border-radius:4px;cursor:pointer;box-shadow:0 2px 4px rgba(0,0,0,0.2);font-size:0.9rem;">Restart</button>
       </div>
-      <canvas id='tetris-canvas' width='192' height='352' style='background:black;display:block;margin:auto;image-rendering:pixelated;'></canvas>
+      <div id='tetris-game-area' style='margin: 0 auto; display: flex; flex-direction: column; align-items: center;'>
+        <div class="tetris-title-controls" style="margin-bottom:8px;display:flex;flex-direction:column;align-items:center;">
+          <h2 class="tetris-title" style="margin-bottom: 8px;">Party in the USA Tetris</h2>
+          <p class="tetris-instructions">Use arrow keys to move/rotate. Space to hard drop.</p>
+          <div id="tetris-score"></div>
+        </div>
+      </div>
+      <div class='tetris-center-outer' style='margin-bottom:16px;'>
+        <canvas id='tetris-canvas' width='204' height='374'></canvas>
+      </div>
     </div>
   `;
-  // Reset controls bar style before appending
+
+  // Inject CSS to force centering
+  if (!document.getElementById('tetris-centering-style')) {
+    const style = document.createElement('style');
+    style.id = 'tetris-centering-style';
+    style.innerHTML = `
+      #tetris-game-area { display: flex !important; flex-direction: column; align-items: center !important; margin: 0 auto !important; }
+      #tetris-canvas { display: block !important; margin: 0 auto !important; }
+    `;
+    document.head.appendChild(style);
+  }
+
+  // Attach event handlers to the new buttons
+  document.getElementById('tetris-back-btn').onclick = backButton.onclick;
+  document.getElementById('tetris-restart-btn').onclick = restartButton.onclick;
+
+  // Play music immediately
+  tetrisAudio.play().catch(()=>{});
+  startTetrisGame();
+}
+
+// Helper to show Tetris controls bar below the game container, never inside or overlapping
+function showTetrisControlsBelowGame() {
   window.controlsDiv.style.position = 'static';
   window.controlsDiv.style.bottom = '';
   window.controlsDiv.style.left = '';
-  window.controlsDiv.style.width = '';
-  window.controlsDiv.style.zIndex = '';
+  window.controlsDiv.style.width = '100%';
+  window.controlsDiv.style.zIndex = '1003';
   window.controlsDiv.style.display = 'flex';
-  window.controlsDiv.style.marginTop = '20px';
-  window.controlsDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-  if (window.controlsDiv.parentNode) {
-    window.controlsDiv.parentNode.removeChild(window.controlsDiv);
+  window.controlsDiv.style.marginTop = '32px';
+  window.controlsDiv.style.marginBottom = '0';
+  window.controlsDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.8)'; // Subtle dark background
+  window.controlsDiv.style.border = 'none';
+  window.controlsDiv.style.justifyContent = 'center';
+  window.controlsDiv.style.gap = '1rem';
+  // Remove all children before appending buttons
+  while (window.controlsDiv.firstChild) {
+    window.controlsDiv.removeChild(window.controlsDiv.firstChild);
   }
-  container.appendChild(window.controlsDiv);
-  showControls(); // Show controls immediately
-  showTetrisCountdown();
+  // Append the two buttons
+  backButton.style.display = 'inline-block';
+  restartButton.style.display = 'inline-block';
+  window.controlsDiv.appendChild(backButton);
+  window.controlsDiv.appendChild(restartButton);
+  window.controlsDiv.style.display = 'flex';
+  // Place controls bar after the tetris-outer div
+  const tetrisOuter = container.querySelector('#tetris-outer');
+  if (tetrisOuter) {
+    tetrisOuter.after(window.controlsDiv);
+  } else {
+    container.appendChild(window.controlsDiv);
+  }
+  showControls(); // Ensure controls are visible
+  // Debug: print children
+  console.log('controlsDiv children:', window.controlsDiv.children);
 }
 
 // New function to show Tetris countdown
