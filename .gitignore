@@ -1,1 +1,41 @@
+<<<<<<< HEAD
  
+=======
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Node
+node_modules/
+frontend/node_modules/
+*.log
+
+# macOS
+.DS_Store
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+*.sqlite3
+*.db
+
+# Test files (commonly named)
+**/tests/
+**/test_*.py
+**/test/
+**/tests.py
+
+# VSCode and IDEs
+.vscode/
+.idea/
+
+# Data files (if not needed for the site to run)
+*.csv
+
+# Misc
+.env 
+>>>>>>> 880c7123 (Clean: only source code and essential files, removed venv and unnecessary files from repo)
