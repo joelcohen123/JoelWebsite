@@ -666,6 +666,18 @@ function launchBlackjackGame() {
     window.tetrisAudio = null;
   }
 
+  // --- Force container styles for blackjack ---
+  container.style.display = 'flex';
+  container.style.flexDirection = 'column';
+  container.style.alignItems = 'center';
+  container.style.justifyContent = 'center';
+  container.style.height = '100%';
+  container.style.width = '100%';
+  container.style.minHeight = '0';
+  container.style.minWidth = '0';
+  container.style.margin = '0';
+  container.style.padding = '0';
+
   // Create and append the audio element for Blackjack
   const blackjackAudio = document.createElement('audio');
   blackjackAudio.id = 'blackjack-audio';
