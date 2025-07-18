@@ -7,7 +7,7 @@ body {
     padding-top: 60px; /* Add padding to account for fixed navbar */
 }
 
-canvas {
+#rocketCanvas, #constellationCanvas {
     position: fixed;
     top: 0;
     left: 0;
@@ -80,7 +80,7 @@ canvas {
     height: auto;
     min-height: 100vh;
     margin: 0;
-    padding: 150px 0;
+    padding: 80px 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -526,4 +526,177 @@ canvas {
 
 .project-button:hover {
     background: #444d56;
+}
+
+/* Modal fixes to prevent grey outlines */
+#arcade-hub[style*="display: none"],
+#geo-game-modal[style*="display: none"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Ensure modals don't leave visual artifacts */
+#arcade-hub,
+#geo-game-modal {
+    transition: opacity 0.3s ease;
+}
+
+/* Fix for any potential outline issues */
+* {
+    outline: none;
+}
+
+body:focus,
+html:focus {
+    outline: none;
+}
+
+.tetris-title-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.tetris-instructions {
+  font-size: 1rem;
+  color: #f1faee;
+  margin: 4px 0 0 0;
+  text-align: center;
+  font-family: 'Consolas', monospace;
+}
+
+.tetris-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 0;
+  margin-bottom: 32px; /* Ensure space above controls bar */
+}
+
+.tetris-title {
+  font-size: 2rem;
+  color: #457b9d;
+  margin-bottom: 6px;
+  text-align: center;
+  font-family: 'Consolas', monospace;
+}
+
+#tetris-canvas {
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  background: #111;
+  border-radius: 8px;
+  image-rendering: pixelated;
+}
+
+.tetris-buttons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+#tetris-score {
+  font-family: 'Consolas', monospace;
+  color: #e63946;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.ultra-compact {
+  padding: 0 !important;
+  margin: 0 auto !important;
+  max-width: 220px;
+  min-width: 0;
+  min-height: 0;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+}
+
+.tetris-title {
+  font-size: 1.1rem;
+  color: #457b9d;
+  margin: 0 0 2px 0;
+  text-align: center;
+  font-family: 'Consolas', monospace;
+  font-weight: bold;
+}
+
+.tetris-instructions {
+  font-size: 0.85rem;
+  color: #f1faee;
+  margin: 0 0 4px 0;
+  text-align: center;
+  font-family: 'Consolas', monospace;
+}
+
+#tetris-score {
+  font-family: 'Consolas', monospace;
+  color: #e63946;
+  font-size: 1rem;
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+#tetris-canvas {
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  background: #111;
+  border-radius: 4px;
+  image-rendering: pixelated;
+  width: 204px !important;
+  height: 374px !important;
+  max-width: 100vw;
+  max-height: 60vh;
+}
+
+.tetris-wrapper {
+  margin-bottom: 12px;
+}
+
+.tetris-center-outer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  min-height: 0;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.snake-center-outer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100vw;
+  height: 100vh;
+  min-height: 0;
+  min-width: 0;
+  box-sizing: border-box;
+}
+#snake-wrapper {
+  margin-bottom: 32px;
+}
+#snake-canvas {
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  background: #111;
+  border-radius: 4px;
+  image-rendering: pixelated;
+  width: 242px !important;
+  height: 242px !important;
+  max-width: 100vw;
+  max-height: 60vh;
 }

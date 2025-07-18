@@ -9,13 +9,14 @@
     <script src="Scrolltrack.js" defer></script>
     <script src="ScrollEffect.js" defer></script>
     <script src="script.js" defer></script>
+    <script src="arcade/blackjack.js" defer></script>
 </head>
 <body>
     
     <canvas id="rocketCanvas"></canvas>
     <nav class="navbar">
         <ul class="nav-list">
-            <li><a href="#about" class="nav-item active" onclick="smoothScroll(document.getElementById('about'))">About Me</a></li>
+            <li><a href="#about" class="nav-item" onclick="smoothScroll(document.getElementById('about'))">About Me</a></li>
             <li><a href="#experience" class="nav-item" onclick="smoothScroll(document.getElementById('experience'))">Experience</a></li>
             <li><a href="#projects" class="nav-item" onclick="smoothScroll(document.getElementById('projects'))">Projects</a></li>
             <li><a href="#skills" class="nav-item" onclick="smoothScroll(document.getElementById('skills'))">Skills</a></li>
@@ -29,9 +30,11 @@
             <img src="headshot.png" alt="Joel Cohen" class="profile-img">
             <h1 class="title">Joel Cohen</h1>
             <p class="About Me">
-                I'm a senior Information Science student at the University of Maryland, specializing in cybersecurity and data-driven solutions. With nearly a year of professional experience at Flexnode, a fast-growing data center startup, I've gained hands-on expertise in securing systems and optimizing operations. Passionate about leveraging technology to solve complex problems, I'm eager to bring my skills to impactful projects.
+                Hi, I'm Joel Cohen — a recent University of Maryland graduate with a degree in Information Science and a minor in Real Estate Development. I'm passionate about technology and people, and I'm driven to build a career in tech sales where I can bridge the gap between complex digital solutions and real-world business needs.
+I thrive on understanding how technology works and translating that knowledge into clear, confident guidance for others. I'm excited to help organizations solve problems, grow smarter, and build toward a sustainable, tech-forward future.
+Outside of work, I'm always learning — whether it's diving into new technologies, exploring the ocean as a scuba diver, building with LEGOs, or tracking trends in investing and sports. I bring curiosity, energy, and a collaborative spirit to everything I do.
             </p>
-            <a href="Kandel__Noah___resume.pdf" class="resume-button" download>Download My Resume</a>
+            <a href="_Joel J. Cohen Resume  (1).pdf" class="resume-button" download>Download My Resume</a>
         </div>
     </section>
 
@@ -46,10 +49,10 @@
                     <div class="timeline-content">
                         <h2>Secuirty Engineer Intern/ Website Protection Engineer</h2>
                         <h3>
-                            <a href="https://flexnode.io/" target="_blank" class="company-link">
-                                Flexnode
-                                <img src="images/flexnode.png" 
-                                     alt="Flexnode Logo" class="company-logo">
+                            <a href="https://www.thermofisher.com/us/en/home.html/" target="_blank" class="company-link">
+                                ThermoFisher Scientific
+                                <img src="images/Thermo.png" 
+                                     alt="ThermoFisher Scientific Logo" class="company-logo">
                             </a>
                         </h3>
                         <p>• Designed and implemented a Product Risk Calculator to assess potential security vulnerabilities and flaws on company products, considering the product's configurations. 
@@ -58,17 +61,17 @@
                         </p>
                         <p>• Participated with several security-focused teams to track, progress, and implement ongoing security projects.
                         </p>
-                        <span class="timeline-date">June 2024 - Present<br>Bethesda, MD</span>
+                        <span class="timeline-date">June 2024 - March 2025<br>Frederick, MD</span>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-icon"><i class="fas fa-file-alt"></i></div>
                     <div class="timeline-content">
-                        <h2>Student Engagement Ambassador </h2>
+                        <h2>Database Administrator Intern </h2>
                         <h3>
                             <a href="https://giving.umd.edu/giving/showPage.php?name=student-call-center" target="_blank" class="company-link">
                                 MaxWarehouse (Ace Hardware e-commerce partner)	
-                                <img src="images/tellaterp.png" 
+                                <img src="images/maxwarehouse.png" 
                                      alt="Tell-A-Terp Call Center Logo" class="company-logo">
                             </a>
                         </h3>
@@ -91,7 +94,7 @@
                         <h3>
                             <a href="https://cyber20.com/" target="_blank" class="company-link">
                                 Locatel Pharmacy
-                                <img src="images/isbu.png" 
+                                <img src="images/locatel.png" 
                                      alt="Israel Security Business Union (ISBU) Logo" class="company-logo">
                             </a>
                         </h3>
@@ -100,7 +103,7 @@
                         <p>• Streamlined the new system to process over 3,000 records with a 50% time reduction.
                         </p>
                         
-                        <span class="timeline-date">June 2023 - August 2023<br>Tel Aviv, IL</span>
+                        <span class="timeline-date">June 2023 - August 2023<br>Hallandale, FL</span>
                     </div>
                 </div>
             </div>
@@ -112,89 +115,152 @@
         <div class="content-container">
             <h1 class="title"> My Projects</h1>
     
-            <!-- First Project: E-Commerce Sales Dashboard -->
+            <!-- Arcade Project Card -->
             <div class="project-card">
-                <div class="project-content">
-                    <div class="project-text">
-                        <h2>E-Commerce Sales Dashboard</h2>
-                        <div class="made-with">
-                            <span>Made with:</span>
-                            <img src="images/python.png" alt="Python" class="tech-icon">
-                            <img src="images/tableau.png" alt="Tableau" class="tech-icon">
-                        </div>
-                        <p>
-                            Cleaned and preprocessed 100,000+ transaction records using Python to handle missing values, remove duplicates, and standardize data formats. 
-                            Developed an interactive Tableau dashboard to analyze Brazilian e-commerce sales, revealing key insights such as $2.3M in total revenue, 75% customer preference for credit card payments, and 60% of sales originating from the Southeast region. 
-                            The dashboard enabled stakeholders to identify top-performing products, optimize inventory distribution, and improve marketing strategies.
-                        </p>
-                        <div class="project-buttons">
-                            <a href="https://github.com/nkandel1/ECommerceTableau" target="_blank" class="project-button">
-                                GitHub
-                                <img src="images/github-icon.png" alt="GitHub Logo" class="button-icon">
-                            </a>
-                        </div>
-                    </div>
-                    <img src="images/dashboard_image.png" alt="E-Commerce Sales Dashboard" class="project-image">
+              <div class="project-content">
+                <div class="project-text">
+                  <h2>Arcade</h2>
+                  <p>
+                    Play classic games like Snake, Tetris, and Blackjack right in your browser! FIGHTING GAME IN PROGRESS TEST DEMO
+                  </p>
+                  <div class="project-buttons">
+                    <button class="project-button" id="open-arcade-btn">Play Arcade</button>
+                  </div>
                 </div>
-            </div>
-    
-            <!-- Second Project: Web Scraper for ISBU -->
-            <div class="project-card">
-                <div class="project-content">
-                    <div class="project-text">
-                        <h2>Web Scraper for ISBU</h2>
-                        <div class="made-with">
-                            <span>Made with:</span>
-                            <img src="images/python.png" alt="Python" class="tech-icon">
-                            <img src="images/sql.png" alt="SQL" class="tech-icon">
-                        </div>
-                        <p>
-                            Developed a suite of automated web scrapers using Selenium to extract business data from multiple sources, streamlining lead generation for ISBU. 
-                            The scrapers were integrated with SQL databases to store and organize extracted data, enabling efficient querying and analysis. 
-                            This system successfully generated over 1,000 high-quality business leads, significantly enhancing ISBU's outreach and sales pipeline. 
-                            The project's codebase, available on GitHub, demonstrates robust error handling, modular design, and scalability for future expansion.
-                        </p>
-                        <div class="project-buttons">
-                            <a href="https://github.com/nkandel1/isbu_repo" target="_blank" class="project-button">
-                                GitHub
-                                <img src="images/github-icon.png" alt="GitHub Logo" class="button-icon">
-                            </a>
-                        </div>
-                    </div>
-                    <img src="images/scrapper.png" alt="Web Scraper Project" class="project-image">
-                </div>
+                <img src="Images/arcade-logo.png" alt="Arcade Logo" class="project-image" id="arcade-logo-home" style="max-width: 240px; width: 100%; height: auto; display: block; object-fit: contain;" />
+              </div>
             </div>
 
-            <!-- Third Project: Cybersecurity Presentation for Flexnode -->
-<div class="project-card">
-    <div class="project-content">
-        <div class="project-text">
-            <h2>Cybersecurity Presentation - Flexnode</h2>
-            <div class="made-with">
-                <span>Made with:</span>
-                <img src="images/google_workspace.png" alt="google_workspace" class="tech-icon">
-                <img src="images/powerbi.png" alt="power-bi" class="tech-icon">
+            <!-- Stock Chart Comparison Project Card -->
+            <div class="project-card">
+              <div class="project-content">
+                <div class="project-text">
+                  <h2>Stock Chart Comparison</h2>
+                  <p>
+                    Compare stock performance side-by-side! Enter any stock symbols and view their price charts over different time periods. Perfect for analyzing investment opportunities and market trends.
+                  </p>
+                  <div class="project-buttons">
+                    <button class="project-button" id="open-stock-comparison-btn">Open Stock Tool</button>
+                  </div>
+                </div>   
+                <!-- Easily change the stock chart image by replacing 'Images/stock-chart-icon.png' with your own PNG file -->
+                <img src="Images/stock-chart-icon.png" alt="Stock Chart Icon" class="project-image" id="stock-chart-logo-home" style="max-width: 240px; width: 100%; height: auto; display: block; object-fit: contain;" />
+              </div>
             </div>
-            <p>
-                Delivered a comprehensive one-hour cybersecurity presentation to 100+ employees at Flexnode, covering essential security principles, updated company policies, and proactive awareness campaigns. 
-                Included live demonstrations of the new phishing reporting and training platform, showcasing its features and benefits. 
-                Integrated a Power BI dashboard to visualize real-time phishing attempt data, employee training progress, and incident response metrics. 
-                The presentation decreased employee phishing susceptibility by 40% and significantly improved compliance with security protocols.
-            </p>
-            <!-- <div class="project-buttons">
-                <a href="https://docs.google.com/presentation/d/1Hbck0efAhOwYSOSUatdQxl7xL_iicQ7m/edit?usp=sharing&ouid=102551605283608566679&rtpof=true&sd=true" target="_blank" class="project-button">
-                    View Presentation
-                    <img src="images/link-icon.png" alt="Link Icon" class="button-icon">
-                </a>
-            </div> -->
-        </div>
-        <img src="images/cs_pres.png" alt="Cybersecurity Presentation" class="project-image">
-    </div>
-</div>
+
+            <!-- Geography Guessing Game Project Card -->
+            <div class="project-card">
+              <div class="project-content">
+                <div class="project-text">
+                  <h2>Geography Guessing Game</h2>
+                  <p>
+                    Test your knowledge of world geography! Guess the country based on its flag, a famous landmark, or its capital city. You have tons of different modes to choose from. Earn points for every correct answer!
+                  </p>
+                  <div class="project-buttons">
+                    <button class="project-button" id="open-geo-game-btn">Play Geography Game</button>
+                  </div>
+                </div>
+                <img src="Images/globe-icon.png" alt="Geography Game Logo" class="project-image" id="geo-game-logo-home" style="max-width: 240px; width: 100%; height: auto; display: block; object-fit: contain;" />
+              </div>
+            </div>
+
+            <!-- NFL Matchup Analyzer Project Card -->
+            <div class="project-card">
+              <div class="project-content">
+                <div class="project-text">
+                  <h2>NFL Matchup Analyzer (Work in Progress)</h2>
+                  <p>
+                    Analyze NFL team matchups with historical data! Compare any two teams to see their head-to-head record, scoring trends, and get predictions based on several seasons of real game data. IN PROGRESS DATA NOT CONNECTED LIVE
+                  </p>
+                  <div class="project-buttons">
+                    <button class="project-button" id="open-nfl-analyzer-btn">Open NFL Analyzer</button>
+                  </div>
+                </div>
+                <img src="Images/nfl-icon.png" alt="NFL Analyzer Logo" class="project-image" id="nfl-logo-home" style="max-width: 240px; width: 100%; height: auto; display: block; object-fit: contain;" />
+              </div>
+            </div>
+
+
+            
+            <!-- Stock Comparison Tool Section (hidden by default) -->
+            <div id="stock-comparison-section" class="project-card" style="display: none; margin: 0 auto !important; max-width: 90% !important; text-align: center; transform: none !important; width: 100% !important; box-sizing: border-box;">
+              <div class="project-content" style="justify-content: center; flex-direction: column; width: 100% !important;">
+                <div class="project-text" style="width: 100% !important; background: #fff; border-radius: 12px; padding: 2rem; color: #333; margin: 0; text-align: center;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h2 style="margin: 0; color: #333;">Stock Chart Comparison</h2>
+                    <button onclick="closeStockComparisonSection()" style="padding: 0.5rem 1rem; border-radius: 6px; border: none; background: #f44336; color: #fff; cursor: pointer;">Close</button>
+                  </div>
+                  
+                  <div style="background: #4caf50; color: #fff; padding: 0.75rem; border-radius: 8px; margin-bottom: 1.5rem; font-size: 0.9rem;">
+                    <strong>Stock Data:</strong> Real-time data from Yahoo Finance with fallback. Try: AAPL, MSFT, GOOGL, TSLA, AMZN
+                  </div>
+                  
+                  <!-- Chart Area - Top Section -->
+                  <div style="background: #f8f9fa; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #e9ecef;">
+                    <div style="background: #fff; border-radius: 8px; padding: 1rem; height: 300px; width: 90%; margin: 0 auto 1rem auto; position: relative; border: 1px solid #dee2e6; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                      <canvas id="stock-chart" style="width: 90% !important; height: 90% !important; display: block; margin: 0 auto;"></canvas>
+                    </div>
+                    
+                    <!-- Performance Summary - Above Controls -->
+                    <div id="performance-summary" style="display: none; background: #e9ecef; border-radius: 8px; padding: 1rem; border: 1px solid #dee2e6;">
+                      <h3 style="margin-top: 0; color: #333; font-size: 1.1rem;">Performance Summary</h3>
+                      <div id="performance-data"></div>
+                    </div>
+                  </div>
+                  
+                  <!-- Controls Section - Bottom -->
+                  <div style="background: #f8f9fa; border-radius: 8px; padding: 1.5rem; border: 1px solid #e9ecef;">
+                    <div id="stock-inputs-container" style="display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;"><!-- stock inputs go here -->
+                      <div style="flex: 1; min-width: 150px; position: relative;">
+                        <label style="display: block; margin-bottom: 0.5rem; color: #333; font-size: 0.9rem; font-weight: 500;">Stock 1:</label>
+                        <input id="stock1" type="text" placeholder="e.g., AAPL" value="AAPL" style="width: 100%; padding: 0.75rem; border-radius: 6px; border: 1px solid #ced4da; background: #fff; color: #333; font-size: 0.9rem;">
+                        <div id="stock1-suggestions"></div>
+                      </div>
+                      <div style="flex: 1; min-width: 150px; position: relative;">
+                        <label style="display: block; margin-bottom: 0.5rem; color: #333; font-size: 0.9rem; font-weight: 500;">Stock 2:</label>
+                        <input id="stock2" type="text" placeholder="e.g., MSFT" value="MSFT" style="width: 100%; padding: 0.75rem; border-radius: 6px; border: 1px solid #ced4da; background: #fff; color: #333; font-size: 0.9rem;">
+                        <div id="stock2-suggestions"></div>
+                      </div>
+                    </div>
+                    <button id="add-stock-btn" type="button" style="margin-bottom: 1rem; padding: 0.5rem 1.2rem; border-radius: 6px; border: none; background: #2196F3; color: #fff; cursor: pointer; font-size: 0.9rem; font-weight: 500;">+ Add Stock</button>
+                    
+                    <div style="flex: 1; min-width: 150px;">
+                        <label style="display: block; margin-bottom: 0.5rem; color: #333; font-size: 0.9rem; font-weight: 500;">Time Period:</label>
+                        <select id="timeframe" style="padding: 0.75rem; border-radius: 6px; border: 1px solid #ced4da; background: #fff; color: #333; cursor: pointer; width: 100%; font-size: 0.9rem;">
+                          <option value="1day">1 Day</option>
+                          <option value="1week">1 Week</option>
+                          <option value="1month" selected>1 Month</option>
+                          <option value="3months">3 Months</option>
+                          <option value="6months">6 Months</option>
+                          <option value="1year">1 Year</option>
+                          <option value="5years">5 Years</option>
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                      <button onclick="compareStocks()" style="padding: 0.75rem 1.5rem; border-radius: 6px; border: none; background: #4caf50; color: #fff; cursor: pointer; font-size: 0.9rem; font-weight: 500;">Compare Stocks</button>
+                      
+                      <div id="loading" style="display: none; text-align: center; padding: 0.5rem;">
+                        <div style="font-size: 0.9rem; margin-bottom: 0.5rem; color: #666;">Loading...</div>
+                        <div style="width: 20px; height: 20px; border: 2px solid #ddd; border-top: 2px solid #4caf50; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto;"></div>
+                      </div>
+                      
+                      <div id="error" style="display: none; text-align: center; padding: 0.75rem; background: #f8d7da; border: 1px solid #f5c6cb; border-radius: 6px; color: #721c24; font-size: 0.85rem;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
 
     
         </div>
     </section>
+
+    <!-- Geography Guessing Game Modal/Section (hidden by default) -->
+    <div id="geo-game-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.95); z-index:10000; flex-direction:column; align-items:center; box-sizing: border-box; justify-content: flex-start;"></div>
+
 
     
     <section id="skills" class="section">
@@ -232,6 +298,12 @@
                 <a href="https://www.microsoft.com/en-us/microsoft-365" target="_blank">
                     <img src="images/office365.png" alt="Microsoft Office 365">
                 </a>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
+                    <img src="images/javascript.png" alt="JavaScript">
+                </a>
+                <a href="https://www.salesforce.com/" target="_blank">
+                    <img src="images/salesforce.png" alt="Salesforce">
+                </a>
             </div>
         </div>
     </section>
@@ -239,7 +311,7 @@
     <section id="contact" class="section">
         <div class="content-container">
             <h1 class="title">Contact Me</h1>
-            <form id="contact-form" action="https://formspree.io/f/xrbewlgl" method="POST">
+            <form id="contact-form" action="https://formspree.io/f/xldnqnlw" method="POST">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
     
@@ -257,6 +329,100 @@
     <script src="script.js"></script>
     <script src="scripts/Scrolltrack.js"></script>
     <script src="scripts/constellations.js"></script>
-    <script src="scripts/ScrollEffects.js"></script> 
+    <script src="scripts/ScrollEffects.js"></script>
+    <script src="arcade/arcade.js"></script>
+    <script src="arcade/snake.js"></script>
+    <script src="arcade/tetris.js"></script>
+    <script src="arcade/blackjack.js"></script>
+    <script src="arcade/fighter.js"></script>
+    <script src="geoGame.js"></script>
+    <script src="nfl-analyzer.js"></script>
+
+    <!-- Chart.js and adapter for stock comparison tool -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="stockComparison.js"></script>
+
+
+
+    <!-- Arcade Modal/Section (hidden by default) -->
+    <div id="arcade-hub" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.95); z-index:10000; flex-direction:column; align-items:center; box-sizing: border-box; justify-content: flex-start;">
+      <img src="Images/arcade-logo.png" alt="Arcade Logo" id="arcade-logo" style="margin-top: 32px; margin-bottom: 8px; max-width: 120px; width: 100%; height: auto; display: block;" />
+      <h1 style="color:white;">Arcade</h1>
+      <div style="display:flex; gap:2rem; margin-top:2rem;">
+        <div class="arcade-game-option" style="display:flex; flex-direction:column; align-items:center; gap:0.5rem; cursor:pointer;">
+          <img src="Images/snake-icon.png" alt="Snake" style="width:64px; height:64px; object-fit:cover; border-radius:8px;">
+          <button class="arcade-game-btn" data-game="snake">Snake</button>
+        </div>
+        <div class="arcade-game-option" style="display:flex; flex-direction:column; align-items:center; gap:0.5rem; cursor:pointer;">
+          <img src="Images/tetris-icon.png" alt="Tetris" style="width:64px; height:64px; object-fit:cover; border-radius:8px;">
+          <button class="arcade-game-btn" data-game="tetris">Tetris</button>
+        </div>
+        <div class="arcade-game-option" style="display:flex; flex-direction:column; align-items:center; gap:0.5rem; cursor:pointer;">
+          <img src="Images/blackjack-icon.png" alt="Blackjack" style="width:64px; height:64px; object-fit:cover; border-radius:8px;">
+          <button class="arcade-game-btn" data-game="blackjack">Blackjack</button>
+        </div>
+      </div>
+      <button id="close-arcade-btn" style="margin-top:2rem;">Close</button>
+      <div id="arcade-game-container"></div>
+    </div>
+
+    <!-- NFL Matchup Analyzer Modal/Section (hidden by default) -->
+    <div id="nfl-analyzer-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.95); z-index:10000; flex-direction:column; align-items:center; box-sizing: border-box; justify-content: flex-start; overflow-y: auto;">
+      <div style="width: 90%; max-width: 1200px; margin: 20px auto; background: white; border-radius: 12px; padding: 2rem; color: #333;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+          <h1 style="margin: 0; color: #333; display: flex; align-items: center; gap: 1rem;">
+            <img src="Images/nfl-icon.png" alt="NFL" style="width: 40px; height: 40px;">
+            NFL Matchup Analyzer
+          </h1>
+          <button onclick="closeNflAnalyzer()" style="padding: 0.5rem 1rem; border-radius: 6px; border: none; background: #f44336; color: #fff; cursor: pointer;">Close</button>
+        </div>
+        
+        <div style="background: #4caf50; color: #fff; padding: 0.75rem; border-radius: 8px; margin-bottom: 1.5rem; font-size: 0.9rem;">
+          <strong>Data:</strong> Real NFL game data from 2019-2024 seasons. Select two teams to analyze their matchup history and get predictions.
+        </div>
+        
+                  <!-- Team Selection -->
+          <div style="background: #f8f9fa; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #e9ecef;">
+            <h3 style="margin-top: 0; color: #333;">Select Teams</h3>
+            <div style="display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+              <div style="flex: 1; min-width: 200px;">
+                <label style="display: block; margin-bottom: 0.5rem; color: #333; font-weight: 500;">Team 1:</label>
+                <select id="team1-select" style="width: 100%; padding: 0.75rem; border-radius: 6px; border: 1px solid #ced4da; background: #fff; color: #333; cursor: pointer;">
+                  <option value="">Select a team...</option>
+                </select>
+              </div>
+              <div style="flex: 1; min-width: 200px;">
+                <label style="display: block; margin-bottom: 0.5rem; color: #333; font-weight: 500;">Team 2:</label>
+                <select id="team2-select" style="width: 100%; padding: 0.75rem; border-radius: 6px; border: 1px solid #ced4da; background: #fff; color: #333; cursor: pointer;">
+                  <option value="">Select a team...</option>
+                </select>
+              </div>
+              <div style="flex: 1; min-width: 150px;">
+                <label style="display: block; margin-bottom: 0.5rem; color: #333; font-weight: 500;">Season:</label>
+                <select id="season-select" style="width: 100%; padding: 0.75rem; border-radius: 6px; border: 1px solid #ced4da; background: #fff; color: #333; cursor: pointer;">
+                  <option value="">All Seasons</option>
+                </select>
+              </div>
+            </div>
+            <button onclick="analyzeMatchup()" style="padding: 0.75rem 1.5rem; border-radius: 6px; border: none; background: #2196F3; color: #fff; cursor: pointer; font-weight: 500;">Analyze Matchup</button>
+          </div>
+        
+        <!-- Results Section -->
+        <div id="nfl-results" style="display: none; background: #f8f9fa; border-radius: 8px; padding: 1.5rem; border: 1px solid #e9ecef;">
+          <h3 style="margin-top: 0; color: #333;">Matchup Analysis</h3>
+          <div id="nfl-results-content"></div>
+        </div>
+        
+        <!-- Loading -->
+        <div id="nfl-loading" style="display: none; text-align: center; padding: 2rem;">
+          <div style="font-size: 1.1rem; margin-bottom: 1rem; color: #666;">Analyzing matchup...</div>
+          <div style="width: 40px; height: 40px; border: 4px solid #ddd; border-top: 4px solid #2196F3; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto;"></div>
+        </div>
+        
+        <!-- Error -->
+        <div id="nfl-error" style="display: none; text-align: center; padding: 1rem; background: #f8d7da; border: 1px solid #f5c6cb; border-radius: 6px; color: #721c24;"></div>
+      </div>
+    </div>
 </body>
 </html>

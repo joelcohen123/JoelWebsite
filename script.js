@@ -192,76 +192,31 @@ window.smoothScroll = function(target) {
   // Typing animation for the header
   document.addEventListener('DOMContentLoaded', function() {
     const headerElement = document.querySelector('.header-element h1');
-    const text = "Hi, I'm Jacob Fishman!";
-    let index = 0;
-    headerElement.textContent = "";
-    
-    function typeCharacter() {
-      if (index < text.length) {
-        headerElement.textContent += text.charAt(index);
-        index++;
-        setTimeout(typeCharacter, 110); // adjust typing speed here
+    if (headerElement) {
+      const text = "Hi, I'm Joel Cohen!";
+      let index = 0;
+      headerElement.textContent = "";
+      
+      function typeCharacter() {
+        if (index < text.length) {
+          headerElement.textContent += text.charAt(index);
+          index++;
+          setTimeout(typeCharacter, 110); // adjust typing speed here
+        }
       }
+      
+      typeCharacter();
     }
     
-    typeCharacter();
+    // Add event handlers for project buttons
+    const stockComparisonBtn = document.getElementById('open-stock-comparison-btn');
+    if (stockComparisonBtn) {
+      console.log('Stock comparison button found and event listener added');
+      stockComparisonBtn.addEventListener('click', function() {
+        console.log('Stock comparison button clicked');
+        showStockComparisonModal();
+      });
+    } else {
+      console.error('Stock comparison button not found!');
+    }
   });
-  
-  // // Animate typing for additional content headers when they come into view
-  // document.addEventListener('DOMContentLoaded', function() {
-  //   const contentHeaders = document.querySelectorAll('.content-header');
-    
-  //   const headerObserver = new IntersectionObserver((entries, observer) => {
-  //     entries.forEach(entry => {
-  //       if (entry.isIntersecting) {
-  //         // Only animate if not already typed
-  //         if (!entry.target.dataset.typed) {
-  //           const fullText = entry.target.textContent;
-  //           entry.target.textContent = "";
-  //           let index = 0;
-  //           function typeCharacter() {
-  //             if (index < fullText.length) {
-  //               entry.target.textContent += fullText.charAt(index);
-  //               index++;
-  //               setTimeout(typeCharacter, 100); // adjust typing speed if needed
-  //             } else {
-  //               entry.target.dataset.typed = "true";
-  //               observer.unobserve(entry.target);
-  //             }
-  //           }
-  //           typeCharacter();
-  //         }
-  //       }
-  //     });
-  //   }, { threshold: 0.5 });
-    
-  //   contentHeaders.forEach(header => headerObserver.observe(header));
-  // });
-  // Add spin on mouse enter and reverse spin on mouse leave for skills images
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  // document.addEventListener('DOMContentLoaded', function() {
-  //   const skillImages = document.querySelectorAll("#skills img");
-  //   skillImages.forEach(img => {
-  //     img.addEventListener("mouseenter", function() {
-  //       img.style.transition = "transform 1s linear";
-  //       img.style.transform = "rotate(360deg)";
-  //     });
-  //     img.addEventListener("mouseleave", function() {
-  //       img.style.transition = "transform 1s linear";
-  //       img.style.transform = "rotate(-360deg)";
-  //       // Reset the rotation to 0 after the reverse animation
-  //       setTimeout(() => {
-  //         img.style.transform = "rotate(0deg)";
-  //       }, 1000);
-  //     });
-  //   });
-  // });
